@@ -10,8 +10,10 @@ SET(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_HOME_DIRECTORY}/bin)
 
 FILE(GLOB SRC_CODE ${SRC}/*.cpp)
 
-add_executable(main ${SRC_CODE})
 
+
+
+add_executable(main ${SRC_CODE})
+target_compile_definitions(main PUBLIC PROJECT_ROOT="${CMAKE_HOME_DIRECTORY}")
 target_link_libraries(main ${wxWidgets_LIBRARIES})
 target_include_directories(main PUBLIC ${INCLUDE})
-add_definitions(main -DPROJECT_ROOT="${CMAKE_HOME_DIRECTORY}")
